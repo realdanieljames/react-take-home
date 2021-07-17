@@ -1,4 +1,15 @@
 function Campaign() {
+
+    const GetCampaignData = ()=>{
+        fetch('https://www.plugco.in/public/take_home_sample_feed')
+        .then((response) => response.json())
+        .then((json)=>{
+            console.log(json)
+        })
+        
+    }
+    GetCampaignData()
+
     return (
         <div>
             {/* ======== Campaign Heading ===================== */}
