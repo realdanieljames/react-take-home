@@ -1,58 +1,41 @@
+import {useState, useEffect} from 'react'
+import CampaignBlock from './CampaignBlock'
+
+// ===========================================================================================//
+// ===========================================================================================//
+
+
+
 function Campaign() {
 
+    const [campaignData, setCampaignData]= useState([])
+
+// ===========================================================================================//
+// ======== grab data from API Endpoint 'https://www.plugco.in/public/take_home_sample_feed' ============== //
     const GetCampaignData = ()=>{
         fetch('https://www.plugco.in/public/take_home_sample_feed')
         .then((response) => response.json())
         .then((json)=>{
             console.log(json)
+            setCampaignData(json.campaigns)
         })
         
     }
-    GetCampaignData()
+
+// ===========================================================================================//
+// ========= UseEffect to run getCampaignData Function on app start/refresh ============ //
+    useEffect(()=>{
+    
+        GetCampaignData()
+    },[])
+// ===========================================================================================//
+
 
     return (
         <div>
-            {/* ======== Campaign Heading ===================== */}
-            <div>
-
-                {/* ==== Campaign Icon ================ */}
-                <div>
-
-                </div>
-                
-                {/* ====== Campaign Name =========== */}
-                <div>
-
-                </div>
-
-                {/* ===== Campaign Pay Per Install */}
-                <div>
-
-                </div>
-            </div>
-
-            {/* ====== Campaign Scrollable Media List ================== */}
-            <div>
-
-                {/* ============== Campaign Media Cover Photo ============== */}
-                <div>
-
-                </div>
-
-                {/* ====== Campaign Media Copy Button =========== */}
-                <div>
-
-                </div>
-
-                {/* ======== Campaign Media Download Button =========== */}
-                <div>
-
-                </div>
-
-            </div>
-
-
-
+            {campaignData.map((data)=>(
+                <CampaignBlock data={data} key={data.id}/>
+            ))}
         </div>
     )
 }

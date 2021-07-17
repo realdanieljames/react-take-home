@@ -6,7 +6,10 @@ import Campaign from "./components/Campaign";
 function App() {
   return (
     <div className="h-screen bg-gray-400">
-      <div>{/* Heading  */}</div>
+        {/* Heading  */}
+      <div className="grid justify-center p-5">
+        <h1>PLUGS</h1>
+      </div>
       {/* =================================== */}
         {/* Campaign */}
       <div>
