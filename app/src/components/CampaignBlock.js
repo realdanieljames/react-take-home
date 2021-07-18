@@ -1,19 +1,29 @@
-function CampaignBlock({data}) {
-
+function CampaignBlock({ data }) {
   return (
     <div>
       {/* ======== Campaign Heading ===================== */}
-      <div>
+      <div className="grid grid-cols-4 m-10">
         {/* ==== Campaign Icon ================ */}
-        <div>
-            <img src={data.campaign_icon_url} alt="" />
+        <div className="pl-5 h-32" >
+          <img className="rounded-3xl" src={data.campaign_icon_url} alt="" />
         </div>
 
-        {/* ====== Campaign Name =========== */}
-        <div></div>
+        {/* ==== Campaign Heading Text ======= */}
+        <div className="grid grid-rows-2 col-span-3 pl-10 ">
+          {/* ====== Campaign Name =========== */}
+          <div className="text-4xl w-auto row-start-1 pt-3">
+            {data.campaign_name}
+          </div>
 
-        {/* ===== Campaign Pay Per Install */}
-        <div></div>
+          {/* ===== Campaign Pay Per Install */}
+          <div className="text-2xl row-start-2 pt-8 font-semibold text-green-700">
+            <p>
+                
+                {data.pay_per_install} per install
+                </p>
+                
+          </div>
+        </div>
       </div>
 
       {/* ====== Campaign Scrollable Media List ================== */}
